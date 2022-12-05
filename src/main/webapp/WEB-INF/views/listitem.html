@@ -1,0 +1,12 @@
+<!-- listitem -->
+<div class="rcontainer">
+	<div class="rdate">{{ date }}</div>
+	<div class="rcaption {{ class }}" title='{{ comment }}'>{{ caption }}</div>
+	<div class="ractions">
+		<a class="cmd" href=edit?id={{ id }}&amp;parent={{ parent }}&amp;page={{ page }}>Правка</a> 
+		<a class="cmd" href='list?parent={{ id }}&amp;page=1'>Подзадачи</a>
+		<a class="cmd" href='delete?id={{ id }}&amp;parent={{ parent }}&amp;page={{ page }}'>Удалить</a>
+	</div>
+</div>
+<hr>
+<!-- end listitem -->

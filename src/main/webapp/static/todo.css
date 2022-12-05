@@ -1,0 +1,51 @@
+body {
+	margin: 2em;
+}
+
+.username {
+	font-weight: bold;
+}
+.option {
+	font-size: 0.8em;
+}
+.label {
+	display: inline-block;
+	width: 5em;
+}
+.short {
+	display: inline-block;
+	width: 2em;
+}
+.long {
+	display: inline-block;
+	width: 15em;
+}
+.date {
+	display: inline-block;
+	width: 7em;
+}
+.caption {
+	display: inline-block;
+	width: 40em;
+	vertical-align: middle;
+	max-width: 100%;
+	
+	/* truncates text at a specific number of lines */
+	text-overflow: ellipsis;
+
+	/* Needed to make text-overflow work */
+	overflow: hidden;
+	white-space: nowrap;
+}
+.priority {
+	font-weight: bold;
+}
+.done {
+	color: gray;
+}
+.comment {
+	width: 40em;
+	height: 20em;
+	max-width: 100%;
+}
+

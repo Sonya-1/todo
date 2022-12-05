@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <!--groupId>com.sample</groupId-->
+  <groupId>org.suai.todo</groupId>
+  <artifactId>todo</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>Todo Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <dependencies>
+	
+	<!-- https://mvnrepository.com/artifact/jakarta.platform/jakarta.jakartaee-api -->
+	<dependency>
+		<groupId>jakarta.platform</groupId>
+		<artifactId>jakarta.jakartaee-api</artifactId>
+		<version>8.0.0</version>
+		<scope>provided</scope>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
+	<dependency>
+		<groupId>javax.servlet.jsp</groupId>
+		<artifactId>javax.servlet.jsp-api</artifactId>
+		<version>2.3.3</version>
+		<scope>provided</scope>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
+    <dependency>
+		<groupId>org.xerial</groupId>
+		<artifactId>sqlite-jdbc</artifactId>
+		<version>3.39.3.0</version>
+	</dependency>
+	
+	 <!-- junit 5, unit test -->
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.8.2</version>
+        <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <finalName>todo</finalName>
+  
+    <plugins>
+    
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.22.2</version>
+        </plugin>
+    
+    
+		<plugin>
+		
+			<!-- fixed: WARNING: Illegal reflective access by com.thoughtworks.xstream.core.util.Fields -->
+			
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			<version>3.3.1</version>
+			<configuration>
+				<archive>
+					<manifest>
+						<addClasspath>true</addClasspath>
+					</manifest>
+				</archive>
+			</configuration>
+		</plugin>
+		
+		
+		<plugin>
+            <groupId>org.codehaus.cargo</groupId>
+            <artifactId>cargo-maven3-plugin</artifactId>
+            <configuration>
+                <container>
+                    <containerId>tomcat9x</containerId>
+                    <type>remote</type>
+                </container>
+                <configuration>
+                    <type>runtime</type>
+                    <properties>
+                        <cargo.server.settings>my-tomcat-server</cargo.server.settings>
+                    </properties>
+                </configuration>
+            </configuration>
+        </plugin>
+
+	</plugins>
+  </build>
+  
+  <properties>
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+     
+     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+  
+</project>
